@@ -13,10 +13,11 @@ public class Author {
     private String firstname;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "sectionauthors",
+    @JoinTable(name = "wrote",
     joinColumns = {@JoinColumn(name = "authorid")},
-            inverseJoinColumns = {@JoinColumn(name = "sectionid")})
-    private Set<Section> sections;
+            inverseJoinColumns = {@JoinColumn(name = "bookid")})
+    private Set<Book> booksset;
 
-
+    public Author() {
+    }
 }

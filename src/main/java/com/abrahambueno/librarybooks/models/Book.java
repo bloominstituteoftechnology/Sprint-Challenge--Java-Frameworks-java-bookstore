@@ -3,7 +3,6 @@ package com.abrahambueno.librarybooks.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 public class Book {
@@ -21,8 +20,11 @@ public class Book {
     @JsonIgnoreProperties("sections")
     private Section sectionidtwo;
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "books")
-    @JsonIgnoreProperties("books")
-    private Set<Author> authors;
+//    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "books")
+//    @JsonIgnoreProperties("books")
+//    private Set<Author> authors;
 
+
+    public Book() {
+    }
 }

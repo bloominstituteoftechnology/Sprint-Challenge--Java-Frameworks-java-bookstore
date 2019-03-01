@@ -9,11 +9,20 @@ import java.util.Set;
 public class Section {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long section;
+    private long sectionid;
 
     private String name;
 
     @OneToMany(mappedBy = "sectionidtwo")
     @JsonIgnoreProperties("sectionidtwo")
     private Set<Book> books;
+
+//    public Section() {@ManyToMany(cascade = CascadeType.ALL, mappedBy = "books")
+//    @JsonIgnoreProperties("books")
+//    private Set<>
+//    }
+
+
+    public Section() {
+    }
 }
