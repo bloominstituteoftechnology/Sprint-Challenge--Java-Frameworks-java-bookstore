@@ -42,9 +42,9 @@ There is a one to many relationship between the book and the section. A section 
   * GET /sections - returns a JSON object list of all the sections, their books, and the books authors. This end point requires custom Swagger documentation.
   
 * Manage the data
-  * PUT /books/{id} - updates a books info (Title, Copyright, ISBN)
-  * POST /books/authors{id} - assigns a book already in the system to an author already in the system
-  * DELETE /books/{id} - deletes a book.
+  * PUT /data/books/{id} - updates a books info (Title, Copyright, ISBN)
+  * POST /data/books/authors{id} - assigns a book already in the system to an author already in the system
+  * DELETE /data/books/{id} - deletes a book.
  
 Your system will have authentication in place. The following are the roles you need to handle:
 * User - people who can look up books, authors, sections,
