@@ -1,4 +1,7 @@
 package com.abrahambueno.librarybooks.repositories;
 
-public interface SectionRepository {
+import com.abrahambueno.librarybooks.models.Section;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface SectionRepository extends JpaRepository<Section, Long> {
 }
