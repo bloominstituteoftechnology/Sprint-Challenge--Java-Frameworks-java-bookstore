@@ -1,6 +1,7 @@
 package com.lambdaschool.bookstore.controllers;
 
 import com.lambdaschool.bookstore.models.Book;
+import com.lambdaschool.bookstore.models.transactional.AuthorJoinBook;
 import com.lambdaschool.bookstore.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -33,5 +34,14 @@ public class BookDataController {
     }
 
     return null;
+  }
+
+  @PostMapping(value = "{bookId}/authors/{authorId}")
+  public AuthorJoinBook addAuthorJoinBook(
+    @PathVariable("bookId") long bookId, @PathVariable("authorId") long authorId
+  ) {
+    AuthorJoinBook authorJoinBook = new AuthorJoinBook(authorId, bookId);
+    bookRepository.addAuthorJoinBook(bookId, authorId);
+    return authorJoinBook;
   }
 }
