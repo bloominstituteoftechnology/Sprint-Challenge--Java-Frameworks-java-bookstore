@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @Entity
@@ -24,6 +25,13 @@ public class Book {
   @JoinColumn(name = "section_id")
   @JsonIgnoreProperties("books")
   private Section section;
+
+  @ManyToMany(
+    cascade = CascadeType.ALL,
+    mappedBy = "books",
+    fetch = FetchType.EAGER
+  )
+  private Set<Author> authors;
 
   public Book() {}
 }

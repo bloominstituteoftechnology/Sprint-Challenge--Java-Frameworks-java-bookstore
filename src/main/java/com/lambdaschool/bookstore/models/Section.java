@@ -11,7 +11,7 @@ import java.util.Set;
 @Table(name = "sections")
 public class Section {
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "section_id")
   private long id;
 
@@ -20,4 +20,6 @@ public class Section {
   @OneToMany(mappedBy = "section", fetch = FetchType.EAGER)
   @JsonIgnoreProperties("section")
   private Set<Book> books;
+
+  public Section() {}
 }
