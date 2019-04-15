@@ -30,6 +30,8 @@ public class BookDataController {
         newBook.setCopy(oldBook.getCopy());
       }
 
+      newBook.setId(id);
+
       return bookRepository.save(newBook);
     }
 
