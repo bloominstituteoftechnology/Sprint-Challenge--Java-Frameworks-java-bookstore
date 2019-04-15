@@ -10,7 +10,7 @@ Create a REST API server to store and read data from a MySQL Database. The table
 
 - [x] book
   * book_id - long primary key
-  * book_title - String the title of the book
+  * title - String the title of the book
   * ISBN - String the ISBN number of the book
   * copy - Int the year the book was published (copyright date)
   * section_id - foreign key to the section where the book can be found.
@@ -22,9 +22,9 @@ Create a REST API server to store and read data from a MySQL Database. The table
 
 There is a many to many relationship between authors and books. A book may have many authors while an author may write many books.
 
-- [ ] section
+- [x] section
   * section - long primary key
-  * name - name String the section in the store where the book may be found. For example: Sci Fi, Romance, Western, Mystery, Finance
+  * name - String the section in the store where the book may be found. For example: Sci Fi, Romance, Western, Mystery, Finance
 
 There is a one to many relationship between the book and the section. A section can have many books while a book can only be in one section.
 

@@ -14,7 +14,6 @@ public class Book {
   @Column(name = "book_id")
   private long id;
 
-  @Column(name = "book_title")
   private String title;
 
   private String isbn;
