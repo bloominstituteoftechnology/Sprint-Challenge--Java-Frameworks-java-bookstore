@@ -1,12 +1,14 @@
 package com.lambdaschool.bookstore.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "books")
 public class Book {
@@ -31,6 +33,7 @@ public class Book {
     mappedBy = "books",
     fetch = FetchType.EAGER
   )
+  @JsonIgnoreProperties("books")
   private Set<Author> authors;
 
   public Book() {}

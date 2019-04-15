@@ -19,13 +19,14 @@ VALUES(1, 'Book-oriented'),
       (2, 'Programming');
 
 INSERT INTO books (book_id, title, isbn, copy, section_id)
-  VALUES(1, 'How to write lots of books', '00000000', 1972),
-        (2, 'How to read lots of books', '00000004', 1984),
-        (3, 'Scripting with Perl', '00000005', 2018),
-        (4, 'Advanced Perl scripting', '00000006', 2019);
+  VALUES(1, 'How to write lots of books', '00000000', 1972, 1),
+        (2, 'How to read lots of books', '00000004', 1984, 1),
+        (3, 'Scripting with Perl', '00000005', 2018, 2),
+        (4, 'Advanced Perl scripting', '00000006', 2019, 2);
 
 INSERT INTO authors_join_books (author_id, book_id)
   VALUES(1, 1),
         (2, 2),
+        (1, 2),
         (3, 3),
         (3, 4);
