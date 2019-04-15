@@ -15,7 +15,7 @@ Create a REST API server to store and read data from a MySQL Database. The table
   * copy - Int the year the book was published (copyright date)
   * section_id - foreign key to the section where the book can be found.
   
-- [ ] authors
+- [x] authors
   * author_id - long primary key
   * last_name - String last name of the author
   * first_name - String first name of the author
@@ -60,8 +60,8 @@ Expose the following end points to aid in managing users
 - [ ] POST /user - adds a User
 
 Expose at least the following actuator endpoints to help with system management
-- [ ] /health
-- [ ] /info
-- [ ] /metrics
+- [x] /health
+- [x] /info
+- [x] /metrics
 
 Note that several obvious end points are not included in the required list. Finishing out the list of useful end points is the stretch goal. You are to decide what those end points are!
