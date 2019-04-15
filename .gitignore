@@ -24,3 +24,6 @@ HELP.md
 /nbdist/
 /.nb-gradle/
 /build/
+
+# ignores DB credentials
+/src/main/resources/application.properties
