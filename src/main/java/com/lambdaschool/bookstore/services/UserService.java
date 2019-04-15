@@ -9,5 +9,5 @@ public interface UserService {
 
   List<User> findAll();
 
-  User delete(long id);
+  void delete(long id);
 }

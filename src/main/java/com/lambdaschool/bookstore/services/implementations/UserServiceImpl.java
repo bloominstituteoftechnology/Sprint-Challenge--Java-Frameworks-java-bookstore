@@ -34,16 +34,8 @@ public class UserServiceImpl implements UserDetailsService, UserService {
   }
 
   @Override
-  public User delete(long id) {
-    var foundUser = userRepository.findById(id);
-
-    if (foundUser.isPresent()) {
-      User user = foundUser.get();
-      userRepository.deleteById(id);
-      return user;
-    }
-
-    return null;
+  public void delete(long id) {
+    userRepository.deleteById(id);
   }
 
   @Override

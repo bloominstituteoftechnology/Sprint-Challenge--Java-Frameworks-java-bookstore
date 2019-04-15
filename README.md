@@ -53,11 +53,11 @@ Your system will have authentication in place. The following are the roles you n
 
 Expose the following end points to aid in managing users
 
-- [ ] GET /users - returns a JSON object list of all users
+- [x] GET /users - returns a JSON object list of all users
 
-- [ ] DELETE /user - deletes a users
+- [x] DELETE /users/{id} - deletes a users
 
-- [ ] POST /user - adds a User
+- [x] POST /users - adds a User
 
 Expose at least the following actuator endpoints to help with system management
 - [x] /health
