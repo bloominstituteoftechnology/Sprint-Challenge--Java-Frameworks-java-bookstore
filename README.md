@@ -47,9 +47,9 @@ There is a one to many relationship between the book and the section. A section 
   - [ ] DELETE /data/books/{id} - deletes a book.
  
 Your system will have authentication in place. The following are the roles you need to handle:
-- [ ] User - people who can look up books, authors, sections,
-- [ ] Data - people who can update data on books, authors, sections. The can also read books, authors, sections.
-- [ ] MGR - people who can update data on users but not on books, authors, sections. They can read books, authors, sections.
+- [x] User - people who can look up books, authors, sections,
+- [x] Data - people who can update data on books, authors, sections. The can also read books, authors, sections.
+- [x] MGR - people who can update data on users but not on books, authors, sections. They can read books, authors, sections.
 
 Expose the following end points to aid in managing users
 
