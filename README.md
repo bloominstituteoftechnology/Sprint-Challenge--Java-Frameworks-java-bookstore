@@ -35,14 +35,14 @@ There is a one to many relationship between the book and the section. A section 
 
 * List the data
 
-  - [ ] GET /books - returns a JSON object list of all the books, their authors, and their section where the book is located. This end point requires custom Swagger documentation.
+  - [x] GET /books - returns a JSON object list of all the books, their authors, and their section where the book is located. This end point requires custom Swagger documentation.
   
-  - [ ] GET /authors - returns a JSON object list of all the authors, their books, and the section where the books is located. This end point requires custom Swagger documentation.
+  - [x] GET /authors - returns a JSON object list of all the authors, their books, and the section where the books is located. This end point requires custom Swagger documentation.
 
-  - [ ] GET /sections - returns a JSON object list of all the sections, their books, and the books authors. This end point requires custom Swagger documentation.
+  - [x] GET /sections - returns a JSON object list of all the sections, their books, and the books authors. This end point requires custom Swagger documentation.
   
 * Manage the data
-  - [ ] PUT /data/books/{id} - updates a books info (Title, Copyright, ISBN)
+  - [x] PUT /data/books/{id} - updates a books info (Title, Copyright, ISBN)
   - [ ] POST /data/books/{bookId}/authors/{authorId} - assigns a book already in the system to an author already in the system
   - [ ] DELETE /data/books/{id} - deletes a book.
  
