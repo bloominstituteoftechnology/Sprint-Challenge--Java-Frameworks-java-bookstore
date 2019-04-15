@@ -44,4 +44,17 @@ public class BookDataController {
     bookRepository.addAuthorJoinBook(bookId, authorId);
     return authorJoinBook;
   }
+
+  @DeleteMapping(value = "{id}")
+  public Book deleteBook(@PathVariable("id") long id) {
+    var foundBook = bookRepository.findById(id);
+
+    if (foundBook.isPresent()) {
+      Book book = foundBook.get();
+      bookRepository.deleteById(id);
+      return book;
+    }
+
+    return null;
+  }
 }

@@ -44,7 +44,7 @@ There is a one to many relationship between the book and the section. A section 
 * Manage the data
   - [x] PUT /data/books/{id} - updates a books info (Title, Copyright, ISBN)
   - [x] POST /data/books/{bookId}/authors/{authorId} - assigns a book already in the system to an author already in the system
-  - [ ] DELETE /data/books/{id} - deletes a book.
+  - [x] DELETE /data/books/{id} - deletes a book.
  
 Your system will have authentication in place. The following are the roles you need to handle:
 - [x] User - people who can look up books, authors, sections,
