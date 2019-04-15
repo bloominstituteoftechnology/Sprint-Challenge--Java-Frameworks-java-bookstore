@@ -25,7 +25,7 @@ public class BookDataController {
       if (newBook.getIsbn() == null) {
         newBook.setIsbn(oldBook.getIsbn());
       }
-      if (Integer.toString(newBook.getCopy()) == null) {
+      if (newBook.getCopy() == 0) {
         newBook.setCopy(oldBook.getCopy());
       }
 
