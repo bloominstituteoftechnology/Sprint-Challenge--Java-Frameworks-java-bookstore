@@ -38,7 +38,7 @@ There is a many to many relationship between authors and books. A book may have 
 
 * You bookstore endpoints should have customized Swagger documentation
 
-* Appropriate Exception handling should be handled for each endpoint
+* Appropriate Exception handling should be in place for each bookstore endpoint
 
 * List the data
 
