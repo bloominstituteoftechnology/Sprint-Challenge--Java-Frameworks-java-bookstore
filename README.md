@@ -36,9 +36,11 @@ There is a many to many relationship between authors and books. A book may have 
 
 * data.sql contains sample data to test your application. It is ok that on the initial load of the data, the audit fields are null.
 
-* You bookstore endpoints should have customized Swagger documentation. Please note that /v2/api-docs is the only current way to access the Swagger documentation and is sufficient for making MVP (passing). Your instructor is investigating...
+* You bookstore endpoints should have customized Swagger documentation. 
 
 * Appropriate Exception handling should be in place for each bookstore endpoint
+
+* The bookstore endpoints should be pageable and sortable.
 
 * List the data
 
