@@ -1,0 +1,39 @@
+curl -X POST --user "lambda-client:lambda-secret" -d "grant_type=password&username=cinnamon&password=123456" http://localhost:2019/oauth/token
+curl -H "Accept: application/json" -H "Authorization: Bearer b0d9cc65-cbb4-442b-8a04-1b8bbaf797e2" -X GET http://localhost:2019/users/users
+curl -H "Accept: application/json" -H "Authorization: Bearer b0d9cc65-cbb4-442b-8a04-1b8bbaf797e2" -X GET http://localhost:2019/users/getusername
+
+curl -X POST --user "lambda-client:lambda-secret" -d "grant_type=password&username=admin&password=password" http://localhost:2019/oauth/token
+curl -H "Accept: application/json" -H "Authorization: Bearer 113dc3aa-50d4-4252-9770-b2630b79150a" -X GET http://localhost:2019/users/getusername
+curl -H "Accept: application/json" -H "Authorization: Bearer 113dc3aa-50d4-4252-9770-b2630b79150a" -X GET http://localhost:2019/users/users
+curl -H "Accept: application/json" -H "Authorization: Bearer 113dc3aa-50d4-4252-9770-b2630b79150a" -X GET http://localhost:2019/users/user/4
+
+curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer 113dc3aa-50d4-4252-9770-b2630b79150a" -d "{ \"username\":\"snoopy\", \"password\":\"password\"}" http://localhost:2019/users/user
+curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer 113dc3aa-50d4-4252-9770-b2630b79150a"  http://localhost:2019/roles/user/7/role/2
+curl -X DELETE -H "Content-Type: application/json" -H "Authorization: Bearer 113dc3aa-50d4-4252-9770-b2630b79150a"  http://localhost:2019/roles/user/7/role/2
+
+curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer 113dc3aa-50d4-4252-9770-b2630b79150a" -d "{ \"name\":\"WEB\"}" http://localhost:2019/roles/role
+curl -H "Accept: application/json" -H "Authorization: Bearer 113dc3aa-50d4-4252-9770-b2630b79150a" -X GET http://localhost:2019/roles/roles
+curl -H "Accept: application/json" -H "Authorization: Bearer 113dc3aa-50d4-4252-9770-b2630b79150a" -X GET http://localhost:2019/roles/role/2
+
+curl -X POST --user "lambda-client:lambda-secret" -d "grant_type=password&username=cinnamon&password=123456" http://localhost:2019/oauth/token
+
+curl -X PUT -H "Content-Type: application/json" -H "Authorization: Bearer a525c7d8-aab0-452e-8dc6-1c8f510e3b3a" -d "{ \"name\":\"WEB2\"}" http://localhost:2019/roles/role/2
+curl -H "Accept: application/json" -H "Authorization: Bearer a525c7d8-aab0-452e-8dc6-1c8f510e3b3a" -X GET http://localhost:2019/roles/role/2
+
+curl -H "Accept: application/json" -H "Authorization: Bearer a525c7d8-aab0-452e-8dc6-1c8f510e3b3a" -X DELETE http://localhost:2019/roles/role/2
+curl -H "Accept: application/json" -H "Authorization: Bearer a525c7d8-aab0-452e-8dc6-1c8f510e3b3a" -X DELETE http://localhost:2019/turtle
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

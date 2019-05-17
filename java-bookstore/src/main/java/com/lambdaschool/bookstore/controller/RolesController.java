@@ -54,7 +54,7 @@ public class RolesController
         return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/role/{id}")
+    @PutMapping(value = "/role/{roleid}")
     public ResponseEntity<?> updateRole(@RequestBody Role updateRole, @PathVariable long roleid)
     {
         roleService.update(updateRole, roleid);
