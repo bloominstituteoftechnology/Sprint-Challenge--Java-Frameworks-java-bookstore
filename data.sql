@@ -23,3 +23,5 @@ INSERT INTO wrote (bookid, authorid) VALUES (3, 2);
 INSERT INTO wrote (bookid, authorid) VALUES (4, 5);
 INSERT INTO wrote (bookid, authorid) VALUES (4, 3);
 INSERT INTO wrote (bookid, authorid) VALUES (5, 4);
+
+alter sequence hibernate_sequence restart with 25;
