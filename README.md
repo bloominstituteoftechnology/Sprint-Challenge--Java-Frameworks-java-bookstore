@@ -1,19 +1,29 @@
 # java-bookstore
 
-# Introduction
+## Introduction
 
 This is a bookstore with books who have authors and can be found in a section of the store.
 
-# Instructions
+## Instructions
 
-Create a REST API server to store and read data from a MySQL Database. The table layouts should be
+The provided initial application has the basics in place for
+* User Oauth2 Authentication
+* Exception Handling
+* Swagger
+* Logging 
+* Unit / Integration testing (at least the POM file entries)
+* Deployment to Heroku
+* Conversion to Postgresql
+
+Starting with this initial application:  
+
+Create a REST API server to store and read data from a PostgreSQL Database (the initial application will have to be converted to use PostgreSQL). The table layouts should be
 
 * book
   * bookid - long primary key
   * booktitle - String the title of the book
   * ISBN - String the ISBN number of the book
   * copy - Int the year the book was published (copyright date)
-  * sectionid - foreign key to the section where the book can be found.
   
 * authors
   * authorid - long primary key
@@ -22,47 +32,38 @@ Create a REST API server to store and read data from a MySQL Database. The table
 
 There is a many to many relationship between authors and books. A book may have many authors while an author may write many books.
 
-* section
-  * section - long primary key
-  * name - name String the section in the store where the book may be found. For example: Sci Fi, Romance, Western, Mystery, Finance
+* Add audit fields to both tables.
 
-There is a one to many relationship between the book and the section. A section can have many books while a book can only be in one section.
+* data.sql contains sample data to test your application. It is ok that on the initial load of the data, the audit fields are null.
 
-* data.sql contains sample data to test your application
+* You bookstore endpoints should have customized Swagger documentation
 
-* End points should return the data worked with or nothing if no data is found.
-* Swagger should be used to document your API. Unless noted below, the default documentation is sufficient assuming appropriate names are used in your coding. For custom Swagger documentation, you do NOT need to document error messages.
+* Appropriate Exception handling should be handled for each endpoint
 
 * List the data
 
-  * GET /books - returns a JSON object list of all the books, their authors, and their section where the book is located. This end point requires custom Swagger documentation.
+  * GET /books - returns a JSON object list of all the books and their authors.
   
-  * GET /authors - returns a JSON object list of all the authors, their books, and the section where the books is located. This end point requires custom Swagger documentation.
+  * GET /authors - returns a JSON object list of all the authors and their books.
 
-  * GET /sections - returns a JSON object list of all the sections, their books, and the books authors. This end point requires custom Swagger documentation.
-  
 * Manage the data
-  * PUT /data/books/{id} - updates a books info (Title, Copyright, ISBN)
-  * POST /data/books/authors{id} - assigns a book already in the system to an author already in the system
-  * DELETE /data/books/{id} - deletes a book.
+
+  * PUT /data/books/{id} - updates a books info (Title, Copyright, ISBN) but does NOT have to assign authors to the books.
+
+  * POST /data/books/authors{id} - assigns a book already in the system to an author already in the system (see how roles are handled for users)
+
+  * DELETE /data/books/{id} - deletes a book and the book author combinations - but does not delete the author records.
  
 Your system will have authentication in place. The following are the roles you need to handle:
-* User - people who can look up books, authors, sections,
+
+* User - people who can look up books, authors
+
 * Data - people who can update data on books, authors, sections. The can also read books, authors, sections.
-* MGR - people who can update data on users but not on books, authors, sections. They can read books, authors, sections.
 
-Expose the following end points to aid in managing users
+* ADMIN - people who can update data on users and otherwise have full access to the system.
 
-* GET /users - returns a JSON object list of all users
+* Make sure that actuator endpoints are exposed
 
-* DELETE /user - deletes a users
-
-* POST /user - adds a User
-
-
-Expose at least the following actuator endpoints to help with system management
-* /health
-* /info
-* /metrics
+### Deploy the system to Heroku!
 
 Note that several obvious end points are not included in the required list. Finishing out the list of useful end points is the stretch goal. You are to decide what those end points are!
