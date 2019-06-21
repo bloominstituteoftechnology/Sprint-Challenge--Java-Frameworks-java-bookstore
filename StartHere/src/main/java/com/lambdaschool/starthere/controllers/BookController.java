@@ -6,7 +6,6 @@ import com.lambdaschool.starthere.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,7 +21,8 @@ public class BookController {
 
     @PutMapping(value = "/data/books/{id}")
     public ResponseEntity<?> updateBook(@PathVariable long id, @RequestBody Book book){
-        return new ResponseEntity<>(bookService.updateBook(book, id), HttpStatus.OK);
+        bookService.updateBook(book, id);
+        return new ResponseEntity<>(book, HttpStatus.OK);
     }
 
     @PostMapping(value = "/data/books/{id}")

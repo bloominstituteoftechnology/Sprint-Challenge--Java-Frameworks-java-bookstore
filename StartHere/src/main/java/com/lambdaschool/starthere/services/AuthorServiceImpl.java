@@ -21,4 +21,9 @@ public class AuthorServiceImpl implements AuthorService {
         repo.findAll().iterator().forEachRemaining(authorList::add);
         return authorList;
     }
+
+    @Override
+    public void save(Author author) {
+        repo.save(author);
+    }
 }

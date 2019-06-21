@@ -1,13 +1,13 @@
 package com.lambdaschool.starthere.models;
 
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Author extends Auditable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,6 +18,7 @@ public class Author extends Auditable {
     private String firstname;
 
     @ManyToMany(mappedBy = "authorList")
+            @JsonIgnoreProperties(value = "authorList")
     List<Book> bookList = new ArrayList<>();
 
     public Author() {

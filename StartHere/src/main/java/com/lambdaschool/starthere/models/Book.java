@@ -1,9 +1,12 @@
 package com.lambdaschool.starthere.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Book extends Auditable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,7 +20,8 @@ public class Book extends Auditable {
     private String copy;
 
     @ManyToMany
-    @JoinTable(name = "bookauthors", joinColumns = {@JoinColumn(name = "bookid")}, inverseJoinColumns = {@JoinColumn(name = "authorid")})
+    @JsonIgnoreProperties(value = "bookList")
+    @JoinTable(name = "wrote", joinColumns = {@JoinColumn(name = "bookid")}, inverseJoinColumns = {@JoinColumn(name = "authorid")})
     List<Author> authorList = new ArrayList<>();
 
     public Book() {

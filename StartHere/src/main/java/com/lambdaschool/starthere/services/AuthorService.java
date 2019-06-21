@@ -7,4 +7,6 @@ import java.util.List;
 public interface AuthorService {
 
     List<Author> findAll();
+
+    void save(Author author);
 }

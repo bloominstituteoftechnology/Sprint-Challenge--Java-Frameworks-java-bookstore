@@ -65,4 +65,9 @@ public class BookServiceImpl implements BookService {
         Book currentBook = repo.findById(bookid).orElseThrow(EntityNotFoundException::new);
         currentBook.getAuthorList().add(authorRepo.findById(authorid).orElseThrow(EntityNotFoundException::new));
     }
+
+    @Override
+    public void save(Book book) {
+        repo.save(book);
+    }
 }
