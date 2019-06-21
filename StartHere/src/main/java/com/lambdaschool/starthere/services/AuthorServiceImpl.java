@@ -4,6 +4,7 @@ package com.lambdaschool.starthere.services;
 import com.lambdaschool.starthere.models.Author;
 import com.lambdaschool.starthere.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,9 +17,9 @@ public class AuthorServiceImpl implements AuthorService {
 
 
     @Override
-    public List<Author> findAll() {
+    public List<Author> findAll(Pageable pageable) {
         List<Author> authorList = new ArrayList<>();
-        repo.findAll().iterator().forEachRemaining(authorList::add);
+        repo.findAll(pageable).iterator().forEachRemaining(authorList::add);
         return authorList;
     }
 
