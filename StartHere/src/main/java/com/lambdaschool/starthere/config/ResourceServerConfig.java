@@ -34,6 +34,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter
                 "/swagger-resource/**",
                 "/swagger-ui.html",
                 "/v2/api-docs",
+                "/authors",
+                "/books",
                 "/webjars/**",
                 "/createnewuser"
                 )
@@ -41,6 +43,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter
                 .antMatchers("/users/**", "/oauth/revoke-token").authenticated()
                 .antMatchers("/roles/**").hasAnyRole("ADMIN", "USER", "DATA")
                 .antMatchers("/actuator/**").hasAnyRole("ADMIN")
+                .antMatchers("/data/**").hasAnyRole("ADMIN", "DATA")
                 .and()
                 .exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
 
