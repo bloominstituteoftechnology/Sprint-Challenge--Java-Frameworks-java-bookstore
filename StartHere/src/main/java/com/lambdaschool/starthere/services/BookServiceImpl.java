@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
+import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,9 +22,9 @@ public class BookServiceImpl implements BookService
     private AuthorRepository authorRepo;
 
     @Override
-    public List<Book> findAll() {
+    public List<Book> findAll(Pageable pageable) {
         List<Book> bookList = new ArrayList<>();
-        repo.findAll().iterator().forEachRemaining(bookList::add);
+        repo.findAll(pageable).iterator().forEachRemaining(bookList::add);
         return bookList;
     }
 
