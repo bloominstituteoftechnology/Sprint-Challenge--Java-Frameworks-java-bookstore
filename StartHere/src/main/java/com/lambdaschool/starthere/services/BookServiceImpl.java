@@ -4,11 +4,14 @@ import com.lambdaschool.starthere.models.Book;
 import com.lambdaschool.starthere.repository.AuthorRepository;
 import com.lambdaschool.starthere.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service(value = "bookService")
 public class BookServiceImpl implements BookService
 {
     @Autowired
@@ -24,6 +27,7 @@ public class BookServiceImpl implements BookService
         return bookList;
     }
 
+    @Transactional
     @Override
     public Book updateBook(Book book, long id) {
         Book currentBook = repo.findById(id).orElseThrow(EntityNotFoundException::new);
@@ -54,6 +58,7 @@ public class BookServiceImpl implements BookService
 
     }
 
+    @Transactional
     @Override
     public void assignAuthor(long bookid, long authorid) {
         Book currentBook = repo.findById(bookid).orElseThrow(EntityNotFoundException::new);
