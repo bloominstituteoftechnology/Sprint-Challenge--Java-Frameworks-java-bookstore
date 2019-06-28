@@ -151,7 +151,7 @@
                 <artifactId>heroku-maven-plugin</artifactId>
                 <version>2.0.3</version>
                 <configuration>
-                    <appName>jrmmba-starthere</appName>
+                    <appName>benjamin-bookstore</appName>
                     <includeTarget>false</includeTarget>
                     <includes>
                         <!--   For windows      <include>${project.build.directory}\${project.build.finalName}.jar</include>-->
