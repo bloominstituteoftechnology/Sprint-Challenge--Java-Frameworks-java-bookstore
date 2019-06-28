@@ -32,7 +32,7 @@ public class AuthorController {
                             "Default sort order is ascending. " +
                             "Multiple sort criteria are supported.")})
     @GetMapping(value = "/authors")
-    public ResponseEntity<?> findAllAuthors(Pageable pageable){
+    public ResponseEntity<?> findAllAuthors(Pageable pageable) {
         List<Author> authorList = authorService.findAll(pageable);
         return new ResponseEntity<>(authorList, HttpStatus.OK);
     }
