@@ -17,7 +17,7 @@ The provided initial application has the basics in place for
 
 Starting with this initial application: https://github.com/LambdaSchool/java-starthere.git 
 
-Create a REST API server to store and read data from a PostgreSQL Database (the initial application will have to be converted to use PostgreSQL). The table layouts should be
+Create a REST API server to store and read data from a PostgreSQL Database. The table layouts should be
 
 * book
   * bookid - long primary key
@@ -52,7 +52,7 @@ There is a many to many relationship between authors and books. A book may have 
 
   * PUT /data/books/{id} - updates a books info (Title, Copyright, ISBN) but does NOT have to assign authors to the books.
 
-  * POST /data/books/authors{id} - assigns a book already in the system to an author already in the system (see how roles are handled for users)
+  * POST /data/books/{bookid}/authors/{authorid} - assigns a book already in the system (bookid) to an author already in the system (authorid) (see how roles are handled for users)
 
   * DELETE /data/books/{id} - deletes a book and the book author combinations - but does not delete the author records.
  
