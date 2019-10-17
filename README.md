@@ -18,11 +18,14 @@ The provided initial application has the basics in place for
 Starting with this initial application: https://github.com/LambdaSchool/java-starthere.git 
 
 Create a REST API server to store and read data from a PostgreSQL Database. The table layouts should be
-
+* section
+  * sectionid - long primary key
+  * sectionname - String the name of section. Cannot be null. Must be unique
+  
 * book
   * bookid - long primary key
-  * booktitle - String the title of the book
-  * ISBN - String the ISBN number of the book
+  * booktitle - String the title of the book. Cannot be null.
+  * ISBN - String the ISBN number of the book. Cannot be null. Must be unique
   * copy - Int the year the book was published (copyright date)
   
 * authors
@@ -32,9 +35,11 @@ Create a REST API server to store and read data from a PostgreSQL Database. The 
 
 There is a many to many relationship between authors and books. A book may have many authors while an author may write many books.
 
-* Add audit fields to both tables.
+The is a one to many relationship between sections and books. One section can hold many books while a book can only be in one sction.
 
-* data.sql contains sample data to test your application. It is ok that on the initial load of the data, the audit fields are null.
+* Add audit fields to all tables.
+
+* data.sql contains sample data to test your application.
 
 * You bookstore endpoints should have customized Swagger documentation. 
 
@@ -44,9 +49,9 @@ There is a many to many relationship between authors and books. A book may have 
 
 * List the data
 
-  * GET /books - returns a JSON object list of all the books and their authors.
+  * GET /books/books - returns a JSON object list of all the books, thier sections, and their authors.
   
-  * GET /authors - returns a JSON object list of all the authors and their books.
+  * GET /authors/authors - returns a JSON object list of all the authors, their books, and the book's section.
 
 * Manage the data
 
@@ -58,7 +63,7 @@ There is a many to many relationship between authors and books. A book may have 
  
 Your system will have authentication in place. The following are the roles you need to handle:
 
-* User - people who can look up books, authors
+* User - people who can look up books, authors, sections
 
 * Data - people who can update data on books, authors, sections. The can also read books, authors, sections.
 
