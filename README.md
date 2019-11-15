@@ -15,7 +15,7 @@ The provided initial application has the basics in place for
 * Deployment to Heroku
 * Conversion to Postgresql
 
-Starting with this initial application: https://github.com/LambdaSchool/java-starthere.git 
+Starting with this initial application: https://github.com/LambdaSchool/java-oauth2
 
 Create a REST API server to store and read data from a PostgreSQL Database. The table layouts should be
 * section
