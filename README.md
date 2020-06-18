@@ -171,7 +171,7 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
   - [ ] Write tests to achieve 100% line coverage in book service
   - [ ] Write tests to achieve 100% line coverage in book controller
 
-- [ ]Expose the following endpoint
+- [ ] Expose the following endpoint
   - [ ] POST /data/books/{bookid}/authors/{authorid} - assigns a book already in the system (bookid) to an author already in the system (authorid) (see how roles are handled for users)
 
 ### Required best practices
