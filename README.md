@@ -18,61 +18,9 @@ Your final results should look like (not counting user authentication related en
 
 ### MVP
 
-<details>
-<summary>GET /books/books - returns a JSON object list of all the books, their section, and their authors.</summary>
-
-```JSON
-```
-
-</details>
-
-<details>
-<summary>GET /authors/authors - returns a JSON object list of all the authors, their books, and the book's section.</summary>
-
-```JSON
-```
-
-</details>
-
-<details>
-<summary>POST /books/book - add a new book.</summary>
-
-DATA
-
-```JSON
-```
-
-OUTPUT
-
-```TEXT
-```
-
-</details>
-
-<details>
-<summary>PUT /books/book/{bookid} - replace the book, associated section, and associated authors with the given information</summary>
-
-DATA
-
-```JSON
-```
-
-OUTPUT
-
-```TEXT
-```
-
-</details>
-
-<details>
-<summary>DELETE /data/books/{id} - deletes a book and the book author combinations - but does not delete the author records.</summary>
-
-OUTPUT
-
-```TEXT
-```
-
-</details>
+- GET /books/books - returns a JSON object list of all the books, their section, and their authors.
+- GET /authors/authors - returns a JSON object list of all the authors, their books, and the book's section.
+- DELETE /data/books/{id} - deletes a book and the book author combinations - but does not delete the author records.
 
 ### Commits
 
