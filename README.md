@@ -142,7 +142,7 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 - [ ] The is a one to many relationship between sections and books. One section can hold many books while a book can only be in one section.
 
 - [ ] add the standard four auditing fields to all tables
-- [ ] The SeedData.java class contains sample data to test your application
+- [ ] The SeedData.java class in the root of the repository contains sample data for both books and users to test your application
 - [ ] Appropriate Exception handling should be in place for each bookstore endpoint
 - [ ] Expose the following endpoints
   - [ ] List the data
@@ -160,16 +160,16 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
   - [ ] ADMIN - people who can update data on users and otherwise have full access to the system.
 
 - [ ] Required Unit Testing
-  - [ ] Write at least 2 unit tests for the book service
-  - [ ] Write at least 2 unit tests for the book controller
+  - [ ] Write at least 2 unit tests for the book service. This can be done either with or without connecting to the database.
+  - [ ] Write at least 2 unit tests for the book controller. This can be done either with or without connecting to the database.
 
 - [ ] Deploy the system to Heroku using PostgreSQL
 
 ### Task 3: Stretch Goals
 
 - [ ] Unit Testing
-  - [ ] Write tests to achieve 100% line coverage in book service
-  - [ ] Write tests to achieve 100% line coverage in book controller
+  - [ ] Write tests to achieve 100% line coverage in book service. This can be done either with or without connecting to the database.
+  - [ ] Write tests to achieve 100% line coverage in book controller. This can be done either with or without connecting to the database.
 
 - [ ] Expose the following endpoint
   - [ ] POST /data/books/{bookid}/authors/{authorid} - assigns a book already in the system (bookid) to an author already in the system (authorid) (see how roles are handled for users)
