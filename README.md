@@ -102,7 +102,7 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 - [ ] You will be creating a REST api service to store and read data from a database. You should be able to switch between an H2 database and a PostgreSQL database by using an application.properties setting.
 
-- [ ] Please fork and clone this repository. This repository does have a starter project. The provided initial application has the basics in place for
+- [ ] Please fork and clone this repository. This repository does have a starter project. The provided initial application has the basics in place for. Note that if you start with the initial project, all the following are already done for you!!! You are just needing to add the parts about books, sections, and authors.
 
 - Auditing fields
 - Exception Handling
@@ -141,9 +141,9 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 - [ ] The is a one to many relationship between sections and books. One section can hold many books while a book can only be in one section.
 
-- [ ] add the standard four auditing fields to all tables
+- [ ] add the standard four auditing fields to all tables (the process is already in place, you just need to make sure the new tables have audit fields.)
 - [ ] The SeedData.java class in the root of the repository contains sample data for both books and users to test your application
-- [ ] Appropriate Exception handling should be in place for each bookstore endpoint
+- [ ] Appropriate Exception handling should be in place for each bookstore endpoint (the process is already in place, you just need to make sure the new endpoints use it)
 - [ ] Expose the following endpoints
   - [ ] List the data
     - [ ] GET /books/books - returns a JSON object list of all the books, their section, and their authors.
@@ -154,12 +154,12 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
     - [ ] PUT /books/book/{bookid} - replace the book, associated section, and associated authors with the given information
     - [ ] DELETE /data/books/{id} - deletes a book and the book author combinations - but does not delete the author records.
 
-- [ ] Your system will have authentication in place. The following are the roles you need to handle:
+- [ ] Your system will have authentication in place. The following are the roles you need to handle (the process is already in place you just need to update your ResourceServerConfiguration to reflect this situation)
   - [ ] User - people who can look up books, authors, sections
-  - [ ] Data - people who can update data on books, authors, sections. The can also read books, authors, sections.
+  - [ ] Data - people who can look up books, authors, sections (yes, just like the User Role!)
   - [ ] ADMIN - people who can update data on users and otherwise have full access to the system.
 
-- [ ] Required Unit Testing
+- [ ] Required Unit Testing (note that all dependencies and such are in place. Generate a test class from book service and book controller, add the necessary annotations and get testing!!!)
   - [ ] Write at least 2 unit tests for the book service. This can be done either with or without connecting to the database.
   - [ ] Write at least 2 unit tests for the book controller. This can be done either with or without connecting to the database.
 

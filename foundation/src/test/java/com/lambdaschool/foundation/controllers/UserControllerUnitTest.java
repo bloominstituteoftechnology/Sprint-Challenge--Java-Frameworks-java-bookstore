@@ -190,60 +190,6 @@ public class UserControllerUnitTest
     }
 
     @Test
-    public void listReallyAllUsers() throws
-            Exception
-    {
-        String apiUrl = "/users/users/all";
-
-        Mockito.when(userService.findAll())
-                .thenReturn(userList);
-
-        RequestBuilder rb = MockMvcRequestBuilders.get(apiUrl)
-                .accept(MediaType.APPLICATION_JSON);
-
-        // the following actually performs a real controller call
-        MvcResult r = mockMvc.perform(rb)
-                .andReturn(); // this could throw an exception
-        String tr = r.getResponse()
-                .getContentAsString();
-
-        ObjectMapper mapper = new ObjectMapper();
-        String er = mapper.writeValueAsString(userList);
-
-        System.out.println("Expect: " + er);
-        System.out.println("Actual: " + tr);
-
-        assertEquals("Rest API Returns List", er, tr);
-    }
-
-    @Test
-    public void listUsersNameContaining() throws
-            Exception
-    {
-        String apiUrl = "/users/user/name/like/cin";
-
-        Mockito.when(userService.findByNameContaining(any(String.class)))
-                .thenReturn(userList);
-
-        RequestBuilder rb = MockMvcRequestBuilders.get(apiUrl)
-                .accept(MediaType.APPLICATION_JSON);
-
-        // the following actually performs a real controller call
-        MvcResult r = mockMvc.perform(rb)
-                .andReturn(); // this could throw an exception
-        String tr = r.getResponse()
-                .getContentAsString();
-
-        ObjectMapper mapper = new ObjectMapper();
-        String er = mapper.writeValueAsString(userList);
-
-        System.out.println("Expect: " + er);
-        System.out.println("Actual: " + tr);
-
-        assertEquals("Rest API Returns List", er, tr);
-    }
-
-    @Test
     public void getUserById() throws
             Exception
     {
