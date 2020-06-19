@@ -148,10 +148,7 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
   - [ ] List the data
     - [ ] GET /books/books - returns a JSON object list of all the books, their section, and their authors.
     - [ ] GET /authors/authors - returns a JSON object list of all the authors, their books, and the book's section.
-
   - [ ] Manage the data
-    - [ ] POST /books/book - add a new book.
-    - [ ] PUT /books/book/{bookid} - replace the book, associated section, and associated authors with the given information
     - [ ] DELETE /data/books/{id} - deletes a book and the book author combinations - but does not delete the author records.
 
 - [ ] Your system will have authentication in place. The following are the roles you need to handle (the process is already in place you just need to update your ResourceServerConfiguration to reflect this situation)
@@ -161,7 +158,6 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 - [ ] Required Unit Testing (note that all dependencies and such are in place. Generate a test class from book service and book controller, add the necessary annotations and get testing!!!)
   - [ ] Write at least 2 unit tests for the book service. This can be done either with or without connecting to the database.
-  - [ ] Write at least 2 unit tests for the book controller. This can be done either with or without connecting to the database.
 
 - [ ] Deploy the system to Heroku using PostgreSQL
 
@@ -172,7 +168,9 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
   - [ ] Write tests to achieve 100% line coverage in book controller. This can be done either with or without connecting to the database.
 
 - [ ] Expose the following endpoint
-  - [ ] POST /data/books/{bookid}/authors/{authorid} - assigns a book already in the system (bookid) to an author already in the system (authorid) (see how roles are handled for users)
+- [ ] POST /books/book - add a new book.
+- [ ] PUT /books/book/{bookid} - replace the book, associated section, and associated authors with the given information
+- [ ] POST /data/books/{bookid}/authors/{authorid} - assigns a book already in the system (bookid) to an author already in the system (authorid) (see how roles are handled for users)
 
 ### Required best practices
 
