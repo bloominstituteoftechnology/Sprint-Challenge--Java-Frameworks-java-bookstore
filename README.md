@@ -132,4 +132,11 @@ It is better to submit a challenge that meets [MVP](https://en.wikipedia.org/wik
 
 ### Tips and Gotchas
 
+A hint about the SeedData.java classes
+
+1. When starting the app, use the seedata in the foundations package, it should load automatically
+2. Test that the data populated and that you're able to get and use tokens
+3. As you're writing your models and services for books, authors, and sections have the root seeddata open so that you're writing them the way that it's expecting
+4. Once you have your models, controllers etc for books, authors and sections move the root seeddata down into foundations and comment out (or remove) the original one in the foundations.
+
 In your solution, it is essential that you follow best practices and produce clean and professional results. You will be scored on your adherence to proper code style and good organization. Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work. It is better to submit a challenge that meets MVP than one that attempts too much and does not.
