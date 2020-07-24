@@ -16,9 +16,32 @@ This is a basic bookstore database scheme with books which have authors. The boo
 
 ### MVP
 
-- GET /books/books - returns a JSON object list of all the books, their section, and their authors.
-- GET /authors/authors - returns a JSON object list of all the authors, their books, and the book's section.
-- DELETE /data/books/{id} - deletes a book and the book author combinations - but does not delete the author records.
+- Implement Security For the routes
+  - GET /books/books
+  - GET /books/book/{id}
+  - POST /books/book
+  - PUT /books/book/{id}
+  - DELETE /books/book/{id}
+
+- Testing the methods
+
+  - Book Service:
+    - findAll
+    - findBookById that succeeds
+    - findBookById that fails
+    - delete
+    - save a new book
+
+  - Book Controller:
+    - listAllBooks
+    - getBookById that succeeds
+    - getBookById that fails
+    - addNewBook
+    - deleteBookById
+
+- Using custom exception handlers
+
+- Deploying to Heroku using PostgreSQL
 
 ### Commits
 
