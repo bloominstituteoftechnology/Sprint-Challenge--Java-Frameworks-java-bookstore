@@ -95,7 +95,7 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
   - [ ] GET /books/book/{id} - any user with role ADMIN or DATA can access
   - [ ] POST /books/book - any user with role ADMIN can access
   - [ ] PUT /books/book/{id} - any user with role ADMIN can access
-  - [ ] DELETE /books/book/{id}
+  - [ ] DELETE /books/book/{id} - any user with role ADMIN can access
 
 - [ ] When a client tries searching for or updating a book that does not exist, a generic exception is sent back to the client. Change this so our custom exception ResourceNotFoundException is returned instead.
 
