@@ -1,0 +1,8 @@
+com.lambdaschool.bookstore
+com.lambdaschool.bookstore.config
+com.lambdaschool.bookstore.controllers
+com.lambdaschool.bookstore.exceptions
+com.lambdaschool.bookstore.handlers
+com.lambdaschool.bookstore.models
+com.lambdaschool.bookstore.repository
+com.lambdaschool.bookstore.services

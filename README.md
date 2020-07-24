@@ -14,8 +14,6 @@ _You have **three hours** to complete this challenge. Plan your time accordingly
 
 This is a basic bookstore database scheme with books which have authors. The book can be found in a section of the store.
 
-Your final results should look like (not counting user authentication related endpoints, just the bookstore endpoints) You can also use the data below to help test your endpoints:
-
 ### MVP
 
 - GET /books/books - returns a JSON object list of all the books, their section, and their authors.
@@ -50,7 +48,7 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 - [ ] You will be creating a REST api service to store and read data from a database. You should be able to switch between an H2 database and a PostgreSQL database by using an application.properties setting.
 
-- [ ] Please fork and clone this repository. This repository does have a starter project. The provided initial application has the basics in place for. Note that if you start with the initial project, all the following are already done for you!!! You are just needing to add the parts about books, sections, and authors.
+- [ ] Please fork and clone this repository. This repository does have a starter project. The provided initial application has the basics in place. Note that if you start with the initial project, all the following are done for you!!!
 
 - Auditing fields
 - Exception Handling
@@ -62,63 +60,43 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
     - Authenticated user logging out
     - plus many more!
 - Swagger
-- Unit / Integration testing (at least the POM file entries)
-- Deployment to Heroku
-- Conversion to Postgresql
+- Unit / Integration testing (at least the POM file entries and general structure)
+- The database is already modeled for you
 
-- [ ] Create the models, repositories, and services needed to model the following suggested table layout:
+![Bookstore Database](bookstoredb.png)
 
-- Note these are the minimum fields required. More is okay.
+- **You are tasked to do the following**
 
-- [ ] section
-  - `sectionid` - long primary key
-  - `sectionname` - String the name of section. Cannot be null. Must be unique
-  
-- [ ] book
-  - `bookid` - long primary key
-  - `booktitle` - String the title of the book. Cannot be null.
-  - `ISBN` - String the ISBN number of the book. Cannot be null. Must be unique
-  - `copy` - Int the year the book was published (copyright date)
-  
-- [ ] authors
-  - `authorid` - long primary key
-  - `lastname` - String last name of the author
-  - `firstname` - String first name of the author
+- [ ] Currently, Books are not addressed in security so those routes cannot be accessed. Setup security so that the following access is available:
+  - [ ] GET /books/books - any user with the role ADMIN or DATA can access
+  - [ ] GET /books/book/{id} - any user with role ADMIN or DATA can access
+  - [ ] POST /books/book - any user with role ADMIN can access
+  - [ ] PUT /books/book/{id} - any user with role ADMIN can access
+  - [ ] DELETE /books/book/{id}
 
-- [ ] There is a many to many relationship between authors and books. A book may have many authors while an author may write many books.
+- [ ] When a client tries searching for or updating a book that does not exist, a generic exception is sent back to the client. Change this so our custom exception ResourceNotFoundException is returned instead.
 
-- [ ] The is a one to many relationship between sections and books. One section can hold many books while a book can only be in one section.
+- [ ] Add unit test for the Book Service using the database as test data. The structure is already in place, you just need to write the tests for the following:
+  - [ ] findAll
+  - [ ] findBookById that succeeds
+  - [ ] findBookById that fails
+  - [ ] delete
+  - [ ] save a new book
 
-- [ ] add the standard four auditing fields to all tables (the process is already in place, you just need to make sure the new tables have audit fields.)
-- [ ] The SeedData.java class in the root of the repository contains sample data for both books and users to test your application
-- [ ] Appropriate Exception handling should be in place for each bookstore endpoint (the process is already in place, you just need to make sure the new endpoints use it)
-- [ ] Expose the following endpoints
-  - [ ] List the data
-    - [ ] GET /books/books - returns a JSON object list of all the books, their section, and their authors.
-    - [ ] GET /authors/authors - returns a JSON object list of all the authors, their books, and the book's section.
-  - [ ] Manage the data
-    - [ ] DELETE /data/books/{id} - deletes a book and the book author combinations - but does not delete the author records.
+- [ ] Add unit tests for the Book Controller NOT relying on the database as test data. The structure is already in place, you need to set up the data and write the tests for the following:
+  - [ ] listAllBooks
+  - [ ] getBookById that succeeds
+  - [ ] getBookById that fails
+  - [ ] addNewBook
+  - [ ] deleteBookById
 
-- [ ] Your system will have authentication in place. The following are the roles you need to handle (the process is already in place you just need to update your ResourceServerConfiguration to reflect this situation)
-  - [ ] User - people who can look up books, authors, sections
-  - [ ] Data - people who can look up books, authors, sections (yes, just like the User Role!)
-  - [ ] ADMIN - people who can update data on users and otherwise have full access to the system.
-
-- [ ] Required Unit Testing (note that all dependencies and such are in place. Generate a test class from book service and book controller, add the necessary annotations and get testing!!!)
-  - [ ] Write at least 2 unit tests for the book service. This can be done either with or without connecting to the database.
-
-- [ ] Deploy the system to Heroku using PostgreSQL
+- [ ] And now that we have a good system, deploy the system to Heroku using PostgreSQL. Your application should be switchable between H2 and PostgreSQL through setting a variable in application.properties
 
 ### Task 3: Stretch Goals
 
 - [ ] Unit Testing
   - [ ] Write tests to achieve 100% line coverage in book service. This can be done either with or without connecting to the database.
   - [ ] Write tests to achieve 100% line coverage in book controller. This can be done either with or without connecting to the database.
-
-- [ ] Expose the following endpoint
-- [ ] POST /books/book - add a new book.
-- [ ] PUT /books/book/{bookid} - replace the book, associated section, and associated authors with the given information
-- [ ] POST /data/books/{bookid}/authors/{authorid} - assigns a book already in the system (bookid) to an author already in the system (authorid) (see how roles are handled for users)
 
 ### Required best practices
 
