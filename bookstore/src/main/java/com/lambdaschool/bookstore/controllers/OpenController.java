@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import springfox.documentation.annotations.ApiIgnore;
@@ -123,6 +124,8 @@ public class OpenController
 
         HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map,
                                                                              headers);
+
+        RestTemplate restTemplate = new RestTemplate();
 
         String theToken = restTemplate.postForObject(requestURI,
                                                      request,
