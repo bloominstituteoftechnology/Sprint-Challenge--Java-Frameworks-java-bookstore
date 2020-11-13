@@ -117,7 +117,7 @@
     </dependencies>
 
     <build>
-        <finalName>simone-web35deploy</finalName>
+        <finalName>simone-web35deploy2</finalName>
 
         <plugins>
             <plugin>
