@@ -11,16 +11,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import static org.junit.Assert.assertEquals;
+
+
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = BookstoreApplication.class)
 //**********
 // Note security is handled at the controller, hence we do not need to worry about security here!
 //**********
-public class BookServiceImplTest
-{
+@SpringBootTest(classes = BookstoreApplication.class)
+public class BookServiceImplTest{
 
     @Autowired
     private BookService bookService;
+
 
     @Before
     public void setUp() throws
@@ -36,8 +39,9 @@ public class BookServiceImplTest
     }
 
     @Test
-    public void findAll()
-    {
+    public void findAll(){
+        assertEquals(5,bookService.findAll().size());
+        System.out.println();
     }
 
     @Test
