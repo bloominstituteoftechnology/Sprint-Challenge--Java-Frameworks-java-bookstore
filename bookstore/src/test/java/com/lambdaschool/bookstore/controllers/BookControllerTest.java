@@ -104,4 +104,24 @@ public class BookControllerTest
             Exception
     {
     }
+
+    @Test
+    public void testListAllBooks() {
+    }
+
+    @Test
+    public void testGetBookById() {
+    }
+
+    @Test
+    public void testAddNewBook() {
+    }
+
+    @Test
+    public void testUpdateFullBook() {
+    }
+
+    @Test
+    public void testDeleteBookById() {
+    }
 }
