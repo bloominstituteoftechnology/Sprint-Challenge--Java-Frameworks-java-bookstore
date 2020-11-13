@@ -164,6 +164,14 @@ public class BookControllerTest
     public void deleteBookById() throws
             Exception
     {
+        String apiUrl = "/books/book/{bookid}";
 
+        RequestBuilder rb = MockMvcRequestBuilders.delete(apiUrl,
+            "3")
+            .contentType(MediaType.APPLICATION_JSON)
+            .accept(MediaType.APPLICATION_JSON);
+        mockMvc.perform(rb)
+            .andExpect(status().is2xxSuccessful())
+            .andDo(MockMvcResultHandlers.print());
     }
 }
