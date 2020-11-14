@@ -15,6 +15,7 @@ import org.junit.runners.MethodSorters;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertEquals;
@@ -28,6 +29,8 @@ import static org.junit.Assert.assertNotNull;
 // Note security is handled at the controller, hence we do not need to worry about security here!
 //**********
 public class BookServiceImplTest{
+    @MockBean
+    HelperFunctions helperFunctions;
 
     @Autowired
     private BookService bookService;
