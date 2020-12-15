@@ -26,6 +26,7 @@ public class BookServiceImplTest
     public void setUp() throws
             Exception
     {
+
         MockitoAnnotations.initMocks(this);
     }
 
