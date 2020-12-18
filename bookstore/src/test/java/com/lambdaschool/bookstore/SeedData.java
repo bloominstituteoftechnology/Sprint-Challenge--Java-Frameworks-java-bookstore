@@ -79,7 +79,7 @@ public class SeedData
         r3 = roleService.save(r3);
 
         // admin, data, user
-        User u1 = new User("admin",
+        User u1 = new User("test admin",
                            "password",
                            "admin@lambdaschool.local");
         u1.getRoles()
@@ -98,7 +98,7 @@ public class SeedData
         userService.save(u1);
 
         // data, user
-        User u2 = new User("cinnamon",
+        User u2 = new User("test cinnamon",
                            "1234567",
                            "cinnamon@lambdaschool.local");
         u2.getRoles()
@@ -117,7 +117,7 @@ public class SeedData
         userService.save(u2);
 
         // user
-        User u3 = new User("barnbarn",
+        User u3 = new User("test barnbarn",
                            "ILuvM4th!",
                            "barnbarn@lambdaschool.local");
         u3.getRoles()
@@ -127,14 +127,14 @@ public class SeedData
                                    "barnbarn@email.local"));
         userService.save(u3);
 
-        User u4 = new User("puttat",
+        User u4 = new User("test puttat",
                            "password",
                            "puttat@school.lambda");
         u4.getRoles()
                 .add(new UserRoles(u4, r2));
         userService.save(u4);
 
-        User u5 = new User("misskitty",
+        User u5 = new User("test misskitty",
                            "password",
                            "misskitty@school.lambda");
         u5.getRoles()
@@ -145,12 +145,12 @@ public class SeedData
          * Seed Books
          ************/
 
-        Author a1 = new Author("John", "Mitchell");
-        Author a2 = new Author("Dan", "Brown");
-        Author a3 = new Author("Jerry", "Poe");
-        Author a4 = new Author("Wells", "Teague");
-        Author a5 = new Author("George", "Gallinger");
-        Author a6 = new Author("Ian", "Stewart");
+        Author a1 = new Author("test John", "Mitchell");
+        Author a2 = new Author("test Dan", "Brown");
+        Author a3 = new Author("test Jerry", "Poe");
+        Author a4 = new Author("test Wells", "Teague");
+        Author a5 = new Author("test George", "Gallinger");
+        Author a6 = new Author("test Ian", "Stewart");
 
         a1 = authorService.save(a1);
         a2 = authorService.save(a2);
@@ -159,11 +159,11 @@ public class SeedData
         a5 = authorService.save(a5);
         a6 = authorService.save(a6);
 
-        Section s1 = new Section("Fiction");
-        Section s2 = new Section("Technology");
-        Section s3 = new Section("Travel");
-        Section s4 = new Section("Business");
-        Section s5 = new Section("Religion");
+        Section s1 = new Section("test Fiction");
+        Section s2 = new Section("test Technology");
+        Section s3 = new Section("test Travel");
+        Section s4 = new Section("test Business");
+        Section s5 = new Section("test Religion");
 
         s1 = sectionService.save(s1);
         s2 = sectionService.save(s2);
@@ -171,29 +171,29 @@ public class SeedData
         s4 = sectionService.save(s4);
         s5 = sectionService.save(s5);
 
-        Book b1 = new Book("Flatterland", "9780738206752", 2001, s1);
+        Book b1 = new Book("test Flatterland", "9780738206752", 2001, s1);
         b1.getWrotes()
                 .add(new Wrote(a6, new Book()));
         b1 = bookService.save(b1);
 
-        Book b2 = new Book("Digital Fortess", "9788489367012", 2007, s1);
+        Book b2 = new Book("test Digital Fortess", "9788489367012", 2007, s1);
         b2.getWrotes()
                 .add(new Wrote(a2, new Book()));
         b2 = bookService.save(b2);
 
-        Book b3 = new Book("The Da Vinci Code", "9780307474278", 2009, s1);
+        Book b3 = new Book("test The Da Vinci Code", "9780307474278", 2009, s1);
         b3.getWrotes()
                 .add(new Wrote(a2, new Book()));
         b3 = bookService.save(b3);
 
-        Book b4 = new Book("Essentials of Finance", "1314241651234", 0, s4);
+        Book b4 = new Book("test Essentials of Finance", "1314241651234", 0, s4);
         b4.getWrotes()
                 .add(new Wrote(a3, new Book()));
         b4.getWrotes()
                 .add(new Wrote(a5, new Book()));
         b4 = bookService.save(b4);
 
-        Book b5 = new Book("Calling Texas Home", "1885171382134", 2000, s3);
+        Book b5 = new Book("test Calling Texas Home", "1885171382134", 2000, s3);
         b5.getWrotes()
                 .add(new Wrote(a4, new Book()));
         b5 = bookService.save(b5);
