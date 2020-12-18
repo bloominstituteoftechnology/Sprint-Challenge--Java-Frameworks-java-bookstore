@@ -131,7 +131,7 @@ public class BookServiceImplTest
         Mockito.when(authorrepos.findById(a1.getAuthorid())).thenReturn(Optional.of(a1));
 
 
-        Book addBook = bookService.save(b3);
+        Book addBook = bookrepos.save(b3);
 
         System.out.println(addBook);
         assertNotNull(addBook);
