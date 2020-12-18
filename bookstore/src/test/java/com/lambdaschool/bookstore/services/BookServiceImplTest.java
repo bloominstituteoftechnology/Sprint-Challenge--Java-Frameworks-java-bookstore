@@ -6,11 +6,13 @@ import com.lambdaschool.bookstore.models.Author;
 import com.lambdaschool.bookstore.models.Book;
 import com.lambdaschool.bookstore.models.Section;
 import com.lambdaschool.bookstore.models.Wrote;
+import com.lambdaschool.bookstore.repository.AuthorRepository;
 import com.lambdaschool.bookstore.repository.BookRepository;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +22,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
 
 
 @RunWith(SpringRunner.class)
@@ -43,6 +48,9 @@ public class BookServiceImplTest
 
     @MockBean
     BookRepository bookrepos;
+
+    @MockBean
+    AuthorRepository authorrepos;
 
     //Mock up database
     private List<Book> bookList = new ArrayList<>();
@@ -85,28 +93,50 @@ public class BookServiceImplTest
     @Test
     public void findAll()
     {
-//        Mockito.when(bookrepos.findAll()).thenReturn(bookList);
-//        assertEquals(2, bookService.findAll().size());
+        Mockito.when(bookrepos.findAll()).thenReturn(bookList);
+        assertEquals(2, bookService.findAll().size());
     }
 
     @Test
     public void findBookById()
     {
+        Mockito.when(bookrepos.findById(111L)).thenReturn(Optional.of(bookList.get(0)));
+        assertEquals("Flatterland", bookService.findBookById(111L).getTitle());
     }
 
     @Test(expected = ResourceNotFoundException.class)
     public void notFindBookById()
     {
+        Mockito.when(bookrepos.findById(1111L)).thenReturn(null);
+        assertEquals("", bookService.findBookById(1110L).getTitle());
     }
 
     @Test
     public void delete()
     {
+        assertEquals(2, bookList.size());
     }
 
     @Test
     public void save()
     {
+        Author a1 = new Author("John", "Mitchell");
+        a1.setAuthorid(10);
+
+        Book b3 = new Book("Flatterland", "9780738206752", 2001, null);
+        b3.getWrotes().add(new Wrote(a1, b3));
+        b3.setBookid(0);
+
+        Mockito.when(bookrepos.save(b3)).thenReturn(b3);
+        Mockito.when(authorrepos.findById(a1.getAuthorid())).thenReturn(Optional.of(a1));
+
+
+        Book addBook = bookService.save(b3);
+
+        System.out.println(addBook);
+        assertNotNull(addBook);
+
+        assertEquals("Flatterland", addBook.getTitle());
     }
 
     @Test
