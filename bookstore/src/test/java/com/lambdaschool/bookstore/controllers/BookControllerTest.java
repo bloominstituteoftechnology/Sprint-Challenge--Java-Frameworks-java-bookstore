@@ -228,12 +228,7 @@ public class BookControllerTest
             Exception
     {
         //Create API url
-        String apiUrl = "/book/111";
-
-
-        //Mock Delete
-        Mockito.doNothing().when(bookService.delete(111L));
-
+        String apiUrl = "/books/book/111";
 
         //Make request builder
         RequestBuilder rb = MockMvcRequestBuilders.delete(apiUrl).accept(MediaType.APPLICATION_JSON);
