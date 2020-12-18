@@ -227,6 +227,18 @@ public class BookControllerTest
     public void deleteBookById() throws
             Exception
     {
-//        Mockito.when(bookService.delete(any(Long.class))
+        //Create API url
+        String apiUrl = "/book/111";
+
+
+        //Mock Delete
+        Mockito.doNothing().when(bookService.delete(111L));
+
+
+        //Make request builder
+        RequestBuilder rb = MockMvcRequestBuilders.delete(apiUrl).accept(MediaType.APPLICATION_JSON);
+
+        //Perform request
+        mockMvc.perform(rb).andExpect(status().isOk());
     }
 }
