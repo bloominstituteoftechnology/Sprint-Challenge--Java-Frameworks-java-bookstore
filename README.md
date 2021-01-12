@@ -59,7 +59,6 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 ### Task 1: Project Set Up
 
 - [ ] Create a forked copy of this project
-- [ ] Add your team lead as collaborator on Github
 - [ ] Clone your OWN version of the repository (Not Lambda's by mistake!)
 - [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
 - [ ] Create a new Java Spring Application using IntelliJ.
@@ -141,3 +140,9 @@ A hint about the SeedData.java classes
 4. Once you have your models, controllers etc for books, authors and sections move the root seeddata down into foundations and comment out (or remove) the original one in the foundations.
 
 In your solution, it is essential that you follow best practices and produce clean and professional results. You will be scored on your adherence to proper code style and good organization. Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work. It is better to submit a challenge that meets MVP than one that attempts too much and does not.
+
+## Submission format
+
+Follow these steps for completing your project.
+
+- [ ] Set up your fork on Github to submit via Codegrade, pushing commits to your <firstName-lastName> branch.
