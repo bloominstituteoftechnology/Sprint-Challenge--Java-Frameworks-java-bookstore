@@ -2,7 +2,7 @@
 
 **Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
 
-This challenge allows you to practice the concepts and techniques learned over the past sprint and apply them in a concrete project. This sprint explored **using Frameworks in Java**. During this sprint, you studied **SQL, Spring Data, JPA, and Hibernate**. In your challenge this week, you will demonstrate your mastery of these skills by creating **a Java Spring REST API Application**.
+This challenge allows you to practice the concepts and techniques learned over the past sprint and apply them in a concrete project. This sprint explored **using Frameworks in Java**. During this sprint, you studied **Exception Handling, User Authentication, Automated Testing, and Deployment**. In your challenge this week, you will demonstrate your mastery of these skills by creating **a Java Spring REST API Application**.
 
 This is an individual assessment. All work must be your own. Your challenge score is a measure of your ability to work independently using the material covered through this sprint. You need to demonstrate proficiency in the concepts and objectives introduced and practiced in preceding days.
 
@@ -12,47 +12,20 @@ _You have **three hours** to complete this challenge. Plan your time accordingly
 
 ## Introduction
 
-This is a basic bookstore database scheme with books which have authors. The book can be found in a section of the store.
-
-### MVP
-
-- Implement Security For the routes
-  - GET /books/books
-  - GET /books/book/{id}
-  - POST /books/book
-  - PUT /books/book/{id}
-  - DELETE /books/book/{id}
-
-- Testing the methods
-
-  - Book Service:
-    - findAll
-    - findBookById that succeeds
-    - findBookById that fails
-    - delete
-    - save a new book
-
-  - Book Controller:
-    - listAllBooks
-    - getBookById that succeeds
-    - getBookById that fails
-    - addNewBook
-    - deleteBookById
-
-- Using custom exception handlers
-
-- Deploying to Heroku using PostgreSQL
+This is a basic bookstore database scheme with books that have authors. Books may have many authors and many authors may have written many books. The relationship between books and authors is called `wrote`. Each book can be found in only one section of the bookstore. 
 
 ### Commits
 
-Commit your code regularly and meaningfully. This helps both you (in case you ever need to return to old code for any number of reasons) and your team lead as the evaluate your solution.
+Commit your code regularly and meaningfully. This helps both you (in case you ever need to return to old code for any number of reasons) and your project reviewers as they evaluate your code.
 
-Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
+## Interview Questions
 
-1. Can you explain exception handling in your application?
-2. Can you explain your user authentication flow?
-3. Can you show me your unit tests and describe how they work?
-4. Can you show how you deployed your application to a cloud service with a persistent database?
+Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics.
+
+1. Explain exception handling in your application.
+2. Explain your user authentication flow.
+3. Explain your unit tests, including how they work and why they are important.
+4. Explain how you deployed your application to a cloud service with a persistent database.
 
 ## Instructions
 
@@ -61,10 +34,13 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 - [ ] Create a forked copy of this project
 - [ ] Clone your OWN version of the repository (Not Lambda's by mistake!)
 - [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-- [ ] Create a new Java Spring Application using IntelliJ.
-- [ ] Push commits: `git push origin <firstName-lastName>`
+- [ ] Start with the provided bookstore application.
+- [ ] Push commits: `git push -u origin <firstName-lastName>`
 - [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly
-- [ ] Push commits: git push origin `<firstName-lastName>`
+
+#### Video on How to Set Up Your Project
+
+[![Video on how to set up your project](https://img.youtube.com/vi/Bw55xlQGQoQ/0.jpg)](https://youtu.be/Bw55xlQGQoQ)
 
 ### Task 2: Project Requirements
 
@@ -84,6 +60,7 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 - Swagger
 - Unit / Integration testing (at least the POM file entries and general structure)
 - The database is already modeled for you
+- [ ] Do NOT change or delete entries in the POM.XML - Dependencies may be added as needed
 
 ![Bookstore Database](bookstoredb.png)
 
@@ -114,12 +91,6 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 - [ ] And now that we have a good system, deploy the system to Heroku using PostgreSQL. Your application should be switchable between H2 and PostgreSQL through setting a variable in application.properties
 
-### Task 3: Stretch Goals
-
-- [ ] Unit Testing
-  - [ ] Write tests to achieve 100% line coverage in book service. This can be done either with or without connecting to the database.
-  - [ ] Write tests to achieve 100% line coverage in book controller. This can be done either with or without connecting to the database.
-
 ### Required best practices
 
 - [ ] Consistent naming. Examples: variables, functions, Components, and file/folder organization.
@@ -132,17 +103,47 @@ It is better to submit a challenge that meets [MVP](https://en.wikipedia.org/wik
 
 ### Tips and Gotchas
 
-A hint about the SeedData.java classes
-
-1. When starting the app, use the seedata in the foundations package, it should load automatically
-2. Test that the data populated and that you're able to get and use tokens
-3. As you're writing your models and services for books, authors, and sections have the root seeddata open so that you're writing them the way that it's expecting
-4. Once you have your models, controllers etc for books, authors and sections move the root seeddata down into foundations and comment out (or remove) the original one in the foundations.
-
 In your solution, it is essential that you follow best practices and produce clean and professional results. You will be scored on your adherence to proper code style and good organization. Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work. It is better to submit a challenge that meets MVP than one that attempts too much and does not.
+
+### Task 3: Stretch Goals
+
+- [ ] Unit Testing
+  - [ ] Write tests to achieve 100% line coverage in book service. This can be done either with or without connecting to the database.
+  - [ ] Write tests to achieve 100% line coverage in book controller. This can be done either with or without connecting to the database.
 
 ## Submission format
 
 Follow these steps for completing your project.
 
 - [ ] Set up your fork on Github to submit via Codegrade, pushing commits to your <firstName-lastName> branch.
+
+## A summary of requirements
+
+### MVP
+
+- Implement Security For the routes
+  - GET /books/books
+  - GET /books/book/{id}
+  - POST /books/book
+  - PUT /books/book/{id}
+  - DELETE /books/book/{id}
+
+- Testing the methods
+
+  - Book Service:
+    - findAll
+    - findBookById that succeeds
+    - findBookById that fails
+    - delete
+    - save a new book
+
+  - Book Controller:
+    - listAllBooks
+    - getBookById that succeeds
+    - getBookById that fails
+    - addNewBook
+    - deleteBookById
+
+- Use custom exception handlers
+
+- Deploy to Heroku using PostgreSQL

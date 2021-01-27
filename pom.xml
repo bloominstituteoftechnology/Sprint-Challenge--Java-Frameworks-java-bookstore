@@ -15,7 +15,7 @@
     <description>Bookstore project for Spring Boot</description>
 
     <properties>
-        <java.version>14</java.version>
+        <java.version>11</java.version>
     </properties>
 
     <dependencies>
@@ -88,6 +88,14 @@
             <version>2.3.6.RELEASE</version>
         </dependency>
         <!-- Security Dependencies End -->
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>spring-mock-mvc</artifactId>
+            <version>3.3.0</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
