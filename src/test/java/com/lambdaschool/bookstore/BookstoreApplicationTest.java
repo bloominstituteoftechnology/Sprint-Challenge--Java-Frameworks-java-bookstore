@@ -10,7 +10,7 @@ import org.springframework.core.env.Environment;
  */
 // @EnableJpaAuditing
 @SpringBootApplication
-public class BookstoreApplication
+public class BookstoreApplicationTest
 {
     /**
      * Connect to the system environment where environment variables live.
@@ -34,6 +34,7 @@ public class BookstoreApplication
         if (System.getenv(envvar) == null)
         {
             stop = true;
+            System.out.println("***** Environment Variable " + envvar + " Not Found *****");
         }
     }
 
@@ -51,7 +52,7 @@ public class BookstoreApplication
         if (!stop)
         {
             // so run the application!
-            SpringApplication.run(BookstoreApplication.class,
+            SpringApplication.run(BookstoreApplicationTest.class,
                                   args);
         }
     }

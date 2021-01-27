@@ -64,4 +64,13 @@ public class Section
     {
         this.books = books;
     }
+
+    @Override
+    public String toString()
+    {
+        return "Section{" +
+            "sectionid=" + sectionid +
+            ", name='" + name + '\'' +
+            '}';
+    }
 }

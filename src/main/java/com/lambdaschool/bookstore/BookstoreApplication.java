@@ -35,6 +35,7 @@ public class BookstoreApplication
         if (System.getenv(envvar) == null)
         {
             stop = true;
+            System.out.println("***** Environment Variable " + envvar + " Not Found *****");
         }
     }
 
