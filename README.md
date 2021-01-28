@@ -60,7 +60,7 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 - Swagger
 - Unit / Integration testing (at least the POM file entries and general structure)
 - The database is already modeled for you
-- [ ] Do NOT change or delete entries in the POM.XML - Dependencies may be added as needed
+- [ ] Do NOT change or delete entries in the POM.XML - Dependencies, plugins, etc. may be added as needed
 
 ![Bookstore Database](bookstoredb.png)
 
