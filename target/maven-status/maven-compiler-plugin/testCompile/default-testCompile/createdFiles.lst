@@ -1,4 +1,4 @@
-com/lambdaschool/bookstore/SeedData.class
-com/lambdaschool/bookstore/BookstoreApplication.class
-com/lambdaschool/bookstore/controllers/BookControllerTest.class
-com/lambdaschool/bookstore/services/BookServiceImplTest.class
+com\lambdaschool\bookstore\BookstoreApplicationTest.class
+com\lambdaschool\bookstore\controllers\BookControllerUnitTestNoDB.class
+com\lambdaschool\bookstore\services\BookServiceImplUnitTestNoDB.class
+com\lambdaschool\bookstore\SeedData.class
