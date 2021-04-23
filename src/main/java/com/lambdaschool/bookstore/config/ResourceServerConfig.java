@@ -1,6 +1,7 @@
 package com.lambdaschool.bookstore.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
@@ -57,6 +58,16 @@ public class ResourceServerConfig
                              "/oauth/revoke-token",
                              "/logout")
                 .authenticated()
+                .antMatchers(HttpMethod.GET, "/books/books")
+                .hasAnyRole("ADMIN", "USER", "DATA")
+                .antMatchers(HttpMethod.GET, "books/book/**")
+                .hasAnyRole("ADMIN", "USER", "DATA")
+                .antMatchers(HttpMethod.POST, "/books/book")
+                .hasAnyRole("ADMIN")
+                .antMatchers(HttpMethod.PUT, "/books/book/**")
+                .hasAnyRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/books/book/**")
+                .hasAnyRole("ADMIN")
                 .antMatchers("/roles/**")
                 .hasAnyRole("ADMIN", "DATA")
                 .anyRequest().denyAll()
