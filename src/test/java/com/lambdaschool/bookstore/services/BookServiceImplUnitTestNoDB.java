@@ -25,11 +25,11 @@ import java.util.Optional;
 
 import static junit.framework.TestCase.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
-
 import static junit.framework.TestCase.assertEquals;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = BookstoreApplicationTest.class)
+@SpringBootTest(classes = BookstoreApplicationTest.class,
+properties = {"command.line.runner.enabled=false"})
 public class BookServiceImplUnitTestNoDB
 {
 
@@ -45,14 +45,12 @@ public class BookServiceImplUnitTestNoDB
     @MockBean
     private SectionService sectionService;
 
-    @MockBean
-        UserAuditing userAuditing;
+
 
     List<Book> myBookList = new ArrayList<>();
 
     @Before
-    public void setUp() throws
-            Exception
+    public void setUp() throws Exception
     {
 
         Author a1 = new Author("John", "Mitchell");
@@ -193,12 +191,38 @@ public class BookServiceImplUnitTestNoDB
 
         Book addbook = bookrepos.save(b6);
         assertNotNull(addbook);
-        assertEquals(b6, addbook.getTitle());
+        assertEquals(b6.getTitle(), addbook.getTitle());
     }
 
     @Test
     public void update()
     {
+        Author a1 = new Author("John", "Mitchell");
+        a1.setAuthorid(1);
+
+        Section s1 = new Section("Fiction");
+        s1.setSectionid(1);
+
+        Book b1 = new Book("Flatterland", "9780738206752", 2001, s1);
+        b1.setBookid(1);
+        b1.getWrotes()
+            .add(new Wrote(a1, b1));
+
+        Mockito.when(bookrepos.findById(1L))
+            .thenReturn(Optional.of(myBookList.get(0)));
+        Mockito.when(sectionService.findSectionById(1))
+            .thenReturn(s1);
+        Mockito.when(authorRepository.findById(1L))
+            .thenReturn(Optional.of(a1));
+
+        Mockito.when(bookrepos.save(any(Book.class)))
+            .thenReturn(b1);
+
+        Book updateBook = bookService.update(b1, 1);
+
+        assertNotNull(updateBook);
+        assertEquals(b1.getTitle(), updateBook.getTitle());
+
     }
 
     @Test
