@@ -223,14 +223,47 @@ public class BookControllerUnitTestNoDB
     }
 
     @Test
-    public void updateFullBook()
+    public void updateFullBook() throws Exception
     {
-//        String apiUrl =
+        String apiUrl = "/books/book/1";
+
+        Author a1 = new Author("John", "Mitchell");
+        a1.setAuthorid(1);
+
+        Section s1 = new Section("Fiction");
+        s1.setSectionid(1);
+
+        Book b1 = new Book("Flatterland test 2", "9780738206752", 2001, s1);
+        b1.setBookid(1);
+        b1.getWrotes()
+            .add(new Wrote(a1, b1));
+
+        Mockito.when(bookService.update(b1, 1L))
+            .thenReturn(b1);
+        ObjectMapper mapper = new ObjectMapper();
+        String bookUpdateString = mapper.writeValueAsString(b1);
+
+        RequestBuilder rb = MockMvcRequestBuilders.put(apiUrl,
+            10L)
+            .contentType(MediaType.APPLICATION_JSON)
+            .accept(MediaType.APPLICATION_JSON)
+            .content(bookUpdateString);
+
+        mockMvc.perform(rb)
+            .andExpect(status().isOk());
+
     }
 
     @Test
     public void deleteBookById() throws Exception
     {
-//        String apiUrl = "/books/book/"
+        String apiUrl = "/books/book/{bookid}";
+
+        RequestBuilder rb = MockMvcRequestBuilders.delete(apiUrl, 1)
+            .contentType(MediaType.APPLICATION_JSON)
+            .accept(MediaType.APPLICATION_JSON);
+        mockMvc.perform(rb)
+            .andExpect(status().isOk())
+            .andDo(MockMvcResultHandlers.print());
     }
 }

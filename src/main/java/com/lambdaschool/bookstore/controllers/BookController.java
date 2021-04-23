@@ -31,7 +31,7 @@ public class BookController
     BookService bookService;
 
     // http://localhost:2019/books/books
-    @PreAuthorize("hasAnyRole('ADMIN', 'USER', 'DATA')")
+
     @GetMapping(value = "/books",
             produces = {"application/json"})
     public ResponseEntity<?> listAllBooks(HttpServletRequest request)
@@ -42,7 +42,7 @@ public class BookController
     }
 
     // http://localhost:2019/books/book/{bookId}
-    @PreAuthorize("hasAnyRole('ADMIN', 'USER', 'DATA')")
+
     @GetMapping(value = "/book/{bookId}",
             produces = {"application/json"})
     public ResponseEntity<?> getBookById(HttpServletRequest request,
