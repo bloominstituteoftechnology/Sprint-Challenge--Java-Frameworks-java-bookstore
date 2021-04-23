@@ -31,6 +31,7 @@ public class BookController
     BookService bookService;
 
     // http://localhost:2019/books/books
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER', 'DATA')")
     @GetMapping(value = "/books",
             produces = {"application/json"})
     public ResponseEntity<?> listAllBooks(HttpServletRequest request)
@@ -41,6 +42,7 @@ public class BookController
     }
 
     // http://localhost:2019/books/book/{bookId}
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER', 'DATA')")
     @GetMapping(value = "/book/{bookId}",
             produces = {"application/json"})
     public ResponseEntity<?> getBookById(HttpServletRequest request,
@@ -53,6 +55,7 @@ public class BookController
     }
 
     // POST http://localhost:2019/books/book
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping(value = "/book", consumes = "application/json")
     public ResponseEntity<?> addNewBook(@Valid @RequestBody Book newBook) throws
             URISyntaxException
@@ -74,6 +77,7 @@ public class BookController
     }
 
     // PUT http://localhost:2019/books/book/1
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PutMapping(value = "/book/{bookid}",
             consumes = "application/json")
     public ResponseEntity<?> updateFullBook(

@@ -35,7 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
-@WithMockUser(username = "admin", roles = {"ADMIN", "USER"})
+@WithMockUser(username = "admin", roles = {"ADMIN", "DATA"})
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
     classes = BookstoreApplicationTest.class,
     properties = {"command.line.runner.enabled=false"})
@@ -154,7 +154,7 @@ public class BookControllerUnitTestNoDB
     @Test
     public void getBookById() throws Exception
     {
-        String apiURL = "/books/book/1";
+        String apiURL = "/books/book/1/";
         Mockito.when(bookService.findBookById(1))
             .thenReturn(myBookList.get(0));
 
@@ -225,11 +225,12 @@ public class BookControllerUnitTestNoDB
     @Test
     public void updateFullBook()
     {
+//        String apiUrl =
     }
 
     @Test
-    public void deleteBookById() throws
-            Exception
+    public void deleteBookById() throws Exception
     {
+//        String apiUrl = "/books/book/"
     }
 }
