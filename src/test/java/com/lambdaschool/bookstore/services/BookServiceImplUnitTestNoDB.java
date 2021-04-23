@@ -176,8 +176,10 @@ public class BookServiceImplUnitTestNoDB
         Section s1 = new Section("Fiction");
         s1.setSectionid(1);
 
-        Book b6 = new Book("Calling Texas Home Part two: Electric Boogaloo!", "1885171382678", 2021, s1);
-        b6.setBookid(5);
+        Book b6 = new Book("Calling Texas Home Part two: Electric Boogaloo!",
+            "1885171382678",
+            2021,
+            s1);;
         b6.getWrotes()
             .add(new Wrote(a1, b6));
 
@@ -189,9 +191,9 @@ public class BookServiceImplUnitTestNoDB
         Mockito.when((authorRepository.findById(1L)))
             .thenReturn(Optional.of(a1));
 
-        Book addbook = bookrepos.save(b6);
+        Book addbook = bookService.save(b6);
         assertNotNull(addbook);
-        assertEquals(b6.getTitle(), addbook.getTitle());
+        assertEquals(b6, addbook);
     }
 
     @Test
