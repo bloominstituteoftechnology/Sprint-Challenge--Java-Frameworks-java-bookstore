@@ -26,6 +26,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -33,7 +34,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@WithMockUser(username = "admin", roles = {"ADMIN", "DATA"})
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = BookstoreApplicationTest.class)
 @AutoConfigureMockMvc
@@ -134,7 +137,14 @@ public class BookControllerUnitTestNoDB
             Exception
     {
 
-
+        String apiURL = "/books/books";
+        Mockito.when(bookService.findAll()).thenReturn(myBookList);
+        RequestBuilder rb = MockMvcRequestBuilders.get(apiURL).accept(MediaType.APPLICATION_JSON);
+        MvcResult r = mockMvc.perform(rb).andReturn();
+        String tr = r.getResponse().getContentAsString();
+        ObjectMapper mapper = new ObjectMapper();
+        String er = mapper.writeValueAsString(myBookList);
+        Assert.assertEquals(er, tr);
 
     }
 
@@ -143,7 +153,14 @@ public class BookControllerUnitTestNoDB
             Exception
     {
 
-        
+        String apiURL = "/books/book/1/";
+        Mockito.when(bookService.findBookById(1)).thenReturn(myBookList.get(0));
+        RequestBuilder rb = MockMvcRequestBuilders.get(apiURL).accept(MediaType.APPLICATION_JSON);
+        MvcResult r = mockMvc.perform(rb).andReturn();
+        String tr = r.getResponse().getContentAsString();
+        ObjectMapper mapper = new ObjectMapper();
+        String er = mapper.writeValueAsString(myBookList.get(0));
+        Assert.assertEquals(er,tr);
 
     }
 
@@ -151,6 +168,15 @@ public class BookControllerUnitTestNoDB
     public void getNoBookById() throws
             Exception
     {
+
+        String apiUrl = "/books/book/198";
+        Mockito.when(bookService.findBookById(1000)).thenReturn(null);
+        RequestBuilder rb = MockMvcRequestBuilders.get(apiUrl).accept(MediaType.APPLICATION_JSON);
+        MvcResult r = mockMvc.perform(rb).andReturn();
+        String tr = r.getResponse().getContentAsString();
+        String er = "";
+        Assert.assertEquals(er, tr);
+
     }
 
     @Test
@@ -168,5 +194,10 @@ public class BookControllerUnitTestNoDB
     public void deleteBookById() throws
             Exception
     {
+
+        String apiUrl = "/books/book/{bookid}";
+        RequestBuilder rb = MockMvcRequestBuilders.delete(apiUrl, 1).contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON);
+        mockMvc.perform(rb).andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
+
     }
 }
